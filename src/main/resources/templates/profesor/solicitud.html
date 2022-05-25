@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/Scripts/bootstrap.bundle.min.js"></script>
+    <link href="/Contener/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/13fcee1f2f.js" crossorigin="anonymous"></script>
+    <title>Registrar</title>
+</head>
+<body style="background-color: rgb(148, 229, 253);">
+
+    <!-- (Inicio) Menu de pagina -->
+    <div class="fs-5">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light bg-opacity-75">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bolder fst-italic fs-1" href="#">
+                    <img src="/Imagenes/IT_snpuebla.png" alt="" width="50" height="50" class="d-inline-block align-text-top">
+                    Bienvenido
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- (Fin) Menu de pagina -->
+    <!-- (Inicio) Titular de Pagina -->
+    <div class="container-fluid" style="font-family: Georgia, 'Times New Roman', Times, serif;">
+        <h1 class="text-center">Solicitud de Asesoria</h1>
+        <h2 class="text-center fw-bolder">Profesor</h2>
+        <br><br>
+    </div>
+    <!-- (Fin) Titular de Pagina -->
+    <!-- (Inicio) Contenido de la pagina -->
+    <div class="container">
+        <div class="row">
+            <div class="col-6 text-center">
+                <figure class="figure">
+                    <img class="img-fluid " src="/Imagenes/Sin título-3.png" style="background-size: contain; height: auto; width: 100%;">
+                    <figcaption class="figure-caption text-center">
+                        Alumno.
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-6">
+                <form action="#" th:action="@{/profesor/solicitud}" th:object="${usuario}" method="post">
+                    <fieldset>
+                        <legend>Registro de Solicitud</legend>
+                        <label for="ntrabajador" class="form-label">Numero de Trabajador:</label>
+                        <input type="text" required="required" th:field="*{ntrabajador}" class="form-control" placeholder="24235">
+                        <br />
+                        
+                        <label for="cargado" class="form-label">Cargo:</label>
+                        <input type="text" required="required" th:field="*{cargo}" class="form-control" placeholder="Docente">
+                        <br />
+
+                        <label for="ncontrol" class="form-label">Numero de Control:</label>
+                        <input type="text" required="required" th:field="*{ncontrol}" class="form-control" placeholder="18100008">
+                        <br />
+
+                        <label for="materia" class="form-label">Materia a Asesorar:</label>
+                        <input type="text" required="required" th:field="*{materia}" class="form-control" placeholder="Base de Datos">
+                        <br />
+                        
+                        <label for="fecha" class="form-label">Fecha de Solicitud:</label>
+                        <input type="date" required="required" th:field="*{fecha}" class="form-control" >
+                        <br />
+                        
+                        <label for="motivo" class="form-label">Materia a Asesorar:</label>
+                        <input type="text" required="required" th:field="*{motivo}" class="form-control" placeholder="Menos de 100 caracteres">
+                        <br />
+
+                        <p style="text-align: center;">
+                            <input type="submit" class=" btn btn-primary" value="Agregar" />
+                        </p>
+                    </fieldset>
+                </form>
+                
+            <div th:if="*{error !=null}" class="alert alert-success alert-dismissible fade show text-center" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" label="Close">&times;</button>
+            <h4 th:text=*{error}></h4>
+            </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- (Fin) Contenido de la pagina -->
+
+</body>
+</html>
